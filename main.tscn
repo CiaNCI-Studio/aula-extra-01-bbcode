@@ -1,0 +1,41 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://texto.gd" id="1"]
+
+[sub_resource type="StyleBoxFlat" id="caixa"]
+content_margin_left = 36.0
+content_margin_top = 28.0
+content_margin_right = 36.0
+content_margin_bottom = 28.0
+bg_color = Color(0.039, 0.031, 0.024, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.961, 0.878, 0.451, 1)
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Caixa" type="PanelContainer" parent="."]
+layout_mode = 1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 60.0
+offset_top = -280.0
+offset_right = -60.0
+offset_bottom = -60.0
+theme_override_styles/panel = SubResource("caixa")
+
+[node name="Texto" type="RichTextLabel" parent="Caixa"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.941, 0.918, 0.847, 1)
+theme_override_font_sizes/normal_font_size = 44
+bbcode_enabled = true
+script = ExtResource("1")
+
+[connection signal="meta_clicked" from="Caixa/Texto" to="Caixa/Texto" method="_on_meta_clicked"]
